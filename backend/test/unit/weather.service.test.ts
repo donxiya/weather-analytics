@@ -18,9 +18,9 @@ vi.mock("../src/repo/weatherRepo", () => ({
 
 /* ---------------- IMPORTS (IMPORTANT) ---------------- */
 
-import * as weatherClient from "../src/clients/openmeteo.client";
-import * as weatherRepo from "../src/repo/weatherRepo";
-import { getWeatherByCity, saveWeather } from "../src/services/weather.service";
+import * as weatherClient from "../../src/clients/openmeteo.client";
+import * as weatherRepo from "../../src/repo/weatherRepo";
+import { getWeatherByCity, saveWeather } from "../../src/services/weather.service";
 
 const fetchWeather = weatherClient.fetchWeather as unknown as ReturnType<typeof vi.fn>;
 const insertWeather = weatherRepo.insertWeather as unknown as ReturnType<typeof vi.fn>;

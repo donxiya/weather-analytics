@@ -7,8 +7,8 @@ vi.mock("../src/db/pool", () => ({
   },
 }));
 
-import { pool } from "../src/db/pool";
-import { insertWeather } from "../src/repo/weatherRepo";
+import { pool } from "../../src/db/pool";
+import { insertWeather } from "../../src/repo/weatherRepo";
 
 const mockQuery = vi.mocked(pool.query);
 

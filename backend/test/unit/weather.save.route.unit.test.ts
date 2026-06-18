@@ -4,8 +4,8 @@ vi.mock("../src/services/weather.service", () => ({
   saveWeather: vi.fn(),
 }));
 
-import { saveWeather } from "../src/services/weather.service";
-import weatherRouter from "../src/routes/weather.routes";
+import { saveWeather } from "../../src/services/weather.service";
+import weatherRouter from "../../src/routes/weather.routes";
 
 const mockedSaveWeather = vi.mocked(saveWeather);
 
