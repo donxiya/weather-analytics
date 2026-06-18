@@ -1,11 +1,11 @@
 import { useState } from "react";
 import CityInput from "./components/CityInput";
 import WeatherCard from "./components/WeatherCard";
-import { getWeather } from "./services/weatherApi";
+import { getWeather, saveWeather } from "./services/weatherApi";
 import type { WeatherResponse } from "./types/weather";
 
 export default function App() {
-  const [weather, setWeather] = useState<WeatherResponse | null>(null);
+  const [weatherList, setWeatherList] = useState<WeatherResponse[]>([]);
   const [loading, setLoading] = useState(false);
 
   const handleSearch = async (city: string) => {
@@ -15,12 +15,27 @@ export default function App() {
 
     try {
       const data = await getWeather(city);
-      setWeather(data);
+
+      // prevent duplicates, replace if exists
+      setWeatherList((prev) => {
+        const filtered = prev.filter((w) => w.city !== data.city);
+        return [...filtered, data];
+      });
     } catch (err) {
       console.error(err);
     }
 
     setLoading(false);
+  };
+
+  const handleSave = async (data: WeatherResponse) => {
+    try {
+      await saveWeather(data);
+      alert(`Saved ${data.city} to database`);
+    } catch (err) {
+      console.error(err);
+      alert("Failed to save weather");
+    }
   };
 
   return (
@@ -31,7 +46,15 @@ export default function App() {
 
       {loading && <p>Loading...</p>}
 
-      {weather && <WeatherCard data={weather} />}
+      <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
+        {weatherList.map((weather) => (
+          <WeatherCard
+            key={weather.city}
+            data={weather}
+            onAdd={handleSave}
+          />
+        ))}
+      </div>
     </div>
   );
 }

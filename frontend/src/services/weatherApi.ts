@@ -11,3 +11,18 @@ export async function getWeather(city: string): Promise<WeatherResponse> {
 
   return res.json();
 }
+
+export async function saveWeather(data: WeatherResponse): Promise<void> {
+  const res = await fetch(`${API_URL}/weather/save`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  });
+
+  if (!res.ok) {
+    const err = await res.json();
+    throw new Error(err.error || "Failed to save weather");
+  }
+}
