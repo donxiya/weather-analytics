@@ -42,8 +42,15 @@ export default function WeatherAnalytics() {
       <h2>Weather Analytics</h2>
 
       <p>Records: {data.count}</p>
-      <p>Avg Temperature: {data.avgTemp.toFixed(2)}°C</p>
-      <p>Avg Wind Speed: {data.avgWind.toFixed(2)} km/h</p>
+      <p>
+        Avg Temperature:{" "}
+        {data.avgTemp != null ? data.avgTemp.toFixed(2) : "N/A"}°C
+      </p>
+
+      <p>
+        Avg Wind Speed:{" "}
+        {data.avgWind != null ? data.avgWind.toFixed(2) : "N/A"} km/h
+      </p>
 
       <button onClick={loadAnalytics} style={{ marginTop: 10 }}>
         Refresh
