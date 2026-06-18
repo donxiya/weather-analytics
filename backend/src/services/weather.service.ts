@@ -5,6 +5,9 @@ import { insertWeather } from "../repo/weatherRepo";
 
 
 export async function getWeatherByCity(city: string) {
+  if (typeof city !== "string") {
+    throw new Error("City must be a string");
+  }
   const key = city.toLowerCase().replace(/\s/g, "");
   const coords = CITY_COORDS[key];
 
@@ -34,17 +37,8 @@ export async function saveWeather(reading: WeatherReading): Promise<void> {
 
   const city = reading?.city;
 
-  if (typeof city !== "string") {
-    console.log("[SERVICE] invalid city type:", typeof city);
-    throw new Error("City must be a string");
-  }
 
   const trimmed = city.trim();
-
-  if (!trimmed) {
-    console.log("[SERVICE] empty city after trim");
-    throw new Error("City is required");
-  }
 
   console.log("[SERVICE] inserting into DB...");
 
