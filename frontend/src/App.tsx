@@ -8,7 +8,6 @@ import type { WeatherResponse } from "./types/weather";
 export default function App() {
   const [weatherList, setWeatherList] = useState<WeatherResponse[]>([]);
   const [loading, setLoading] = useState(false);
-  const [refreshKey, setRefreshKey] = useState(0);
   const handleSearch = async (city: string) => {
     if (!city) return;
 
