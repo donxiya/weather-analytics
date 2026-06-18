@@ -6,7 +6,7 @@ async function main() {
     city: "Boulder",
     temperature: 27.4,
     windSpeed: 42,
-    recordedAt: new Date(),
+    time: new Date(),
   });
 
   console.log("Inserted!");

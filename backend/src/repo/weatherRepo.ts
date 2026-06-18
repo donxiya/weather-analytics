@@ -11,7 +11,7 @@ export async function insertWeather(reading: WeatherReading) {
     reading.city,
     reading.temperature,
     reading.windSpeed,
-    reading.recordedAt,
+    reading.time,
   ];
 
   await pool.query(query, values);

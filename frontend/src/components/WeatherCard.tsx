@@ -18,8 +18,8 @@ export default function WeatherCard({ data, onAdd }: Props) {
     >
       <h2>{data.city}</h2>
       <p>Temperature: {data.temperature}°C</p>
-      <p>Wind Speed: {data.humidity} km/h</p>
-      <p>Time: {data.recordedAt}</p>
+      <p>Wind Speed: {data.windSpeed} km/h</p>
+      <p>Time: {data.time}</p>
 
       <button
         onClick={() => onAdd(data)}
