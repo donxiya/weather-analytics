@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/8</span>
+                <span class='fraction'>8/8</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/8</span>
+                <span class='fraction'>8/8</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -91,49 +91,49 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { pool } from "../db/pool";
 import { WeatherReading } from "../types/weather";
 &nbsp;
-export async function <span class="fstat-no" title="function not covered" >insertWeather(r</span>eading: WeatherReading) {
-<span class="cstat-no" title="statement not covered" >  console.log("DB INSERT INPUT:", reading);</span>
+export async function insertWeather(reading: WeatherReading) {
+  console.log("DB INSERT INPUT:", reading);
 &nbsp;
-  const query = <span class="cstat-no" title="statement not covered" >`</span>
+  const query = `
     INSERT INTO weather_readings (city, temperature, wind_speed, recorded_at)
     VALUES ($1, $2, $3, NOW())
   `;
 &nbsp;
-  const values = <span class="cstat-no" title="statement not covered" >[</span>
+  const values = [
     reading.city,
     reading.temperature,
     reading.windSpeed,
   ];
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  try {</span>
-    const result = <span class="cstat-no" title="statement not covered" >await pool.query(query, values);</span>
-<span class="cstat-no" title="statement not covered" >    console.log("INSERT SUCCESS:", result.rowCount);</span>
+  try {
+    const result = await pool.query(query, values);
+    console.log("INSERT SUCCESS:", result.rowCount);
   } catch (err) {
-<span class="cstat-no" title="statement not covered" >    console.error("DB INSERT ERROR:", err);</span>
-<span class="cstat-no" title="statement not covered" >    throw err;</span>
+    console.error("DB INSERT ERROR:", err);
+    throw err;
   }
 }   </pre></td></tr></table></pre>
 
@@ -142,7 +142,7 @@ export async function <span class="fstat-no" title="function not covered" >inser
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-06-18T04:18:56.559Z
+                at 2026-06-18T15:03:07.177Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

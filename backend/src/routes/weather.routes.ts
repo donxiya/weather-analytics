@@ -6,7 +6,7 @@ const router = Router();
 
 router.get("/", async (req, res) => {
   try {
-    const city = String(req.query.city || "");
+    const city = String(req.query.city);
     const result = await getWeatherByCity(city);
 
     res.json(result);

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1781800605383" clover="3.2.0">
+  <project timestamp="1781800605383" name="All files">
+    <metrics statements="22" coveredstatements="22" conditionals="14" coveredconditionals="12" methods="8" coveredmethods="8" elements="44" coveredelements="42" complexity="0" loc="22" ncloc="22" packages="1" files="1" classes="1"/>
+    <file name="WeatherGrid.tsx" path="C:\Project\weather-analytics\frontend\src\components\WeatherGrid.tsx">
+      <metrics statements="22" coveredstatements="22" conditionals="14" coveredconditionals="12" methods="8" coveredmethods="8"/>
+      <line num="12" count="15" type="stmt"/>
+      <line num="13" count="15" type="stmt"/>
+      <line num="15" count="15" type="stmt"/>
+      <line num="16" count="24" type="stmt"/>
+      <line num="17" count="24" type="stmt"/>
+      <line num="20" count="24" type="cond" truecount="2" falsecount="0"/>
+      <line num="21" count="19" type="stmt"/>
+      <line num="22" count="19" type="stmt"/>
+      <line num="25" count="24" type="cond" truecount="4" falsecount="0"/>
+      <line num="26" count="5" type="cond" truecount="3" falsecount="1"/>
+      <line num="27" count="1" type="stmt"/>
+      <line num="30" count="15" type="stmt"/>
+      <line num="31" count="6" type="cond" truecount="2" falsecount="0"/>
+      <line num="32" count="3" type="cond" truecount="1" falsecount="1"/>
+      <line num="34" count="3" type="stmt"/>
+      <line num="35" count="3" type="stmt"/>
+      <line num="39" count="15" type="stmt"/>
+      <line num="44" count="3" type="stmt"/>
+      <line num="45" count="1" type="stmt"/>
+      <line num="46" count="1" type="stmt"/>
+      <line num="47" count="1" type="stmt"/>
+      <line num="53" count="37" type="stmt"/>
+    </file>
+  </project>
+</coverage>
