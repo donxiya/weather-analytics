@@ -63,15 +63,34 @@ export async function getSavedWeather(): Promise<any[]> {
 export async function getWeatherAnalytics() {
   const data = await getAllWeather();
 
-  const avgTemp =
-    data.reduce((sum, d) => sum + d.temperature, 0) / data.length;
+  console.log("RAW DATA:", data);
 
-  const avgWind =
-    data.reduce((sum, d) => sum + d.windSpeed, 0) / data.length;
+  if (!data || data.length === 0) {
+    return {
+      avgTemp: 0,
+      avgWind: 0,
+      count: 0,
+    };
+  }
+
+  let tempSum = 0;
+  let windSum = 0;
+
+  for (const d of data) {
+    tempSum += Number(d.temperature);
+    windSum += Number(d.windSpeed);
+  }
+
+  const count = data.length;
+
+  const avgTemp = tempSum / count;
+  const avgWind = windSum / count;
+
+  console.log("CALCULATED:", { avgTemp, avgWind, count });
 
   return {
     avgTemp,
     avgWind,
-    count: data.length,
+    count,
   };
 }
