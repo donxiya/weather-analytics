@@ -2,17 +2,17 @@ import { describe, it, expect, vi, beforeEach } from "vitest";
 
 /* ---------------- MOCKS ---------------- */
 
-vi.mock("../src/utils/cityMap", () => ({
+vi.mock("../../src/utils/cityMap", () => ({
   CITY_COORDS: {
     london: { lat: 51.5072, lon: -0.1276 },
   },
 }));
 
-vi.mock("../src/clients/openmeteo.client", () => ({
+vi.mock("../../src/clients/openmeteo.client", () => ({
   fetchWeather: vi.fn(),
 }));
 
-vi.mock("../src/repo/weatherRepo", () => ({
+vi.mock("../../src/repo/weatherRepo", () => ({
   insertWeather: vi.fn(),
 }));
 

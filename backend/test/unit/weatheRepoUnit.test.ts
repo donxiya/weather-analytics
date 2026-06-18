@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
 
 // mock pg pool
-vi.mock("../src/db/pool", () => ({
+vi.mock("../../src/db/pool", () => ({
   pool: {
     query: vi.fn(),
   },

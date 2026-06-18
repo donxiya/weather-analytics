@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
 
-vi.mock("../src/services/weather.service", () => ({
+vi.mock("../../src/services/weather.service", () => ({
   saveWeather: vi.fn(),
 }));
 
