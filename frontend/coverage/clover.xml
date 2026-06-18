@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1781800605383" clover="3.2.0">
-  <project timestamp="1781800605383" name="All files">
-    <metrics statements="22" coveredstatements="22" conditionals="14" coveredconditionals="12" methods="8" coveredmethods="8" elements="44" coveredelements="42" complexity="0" loc="22" ncloc="22" packages="1" files="1" classes="1"/>
+<coverage generated="1781801748126" clover="3.2.0">
+  <project timestamp="1781801748126" name="All files">
+    <metrics statements="28" coveredstatements="28" conditionals="14" coveredconditionals="12" methods="13" coveredmethods="13" elements="55" coveredelements="53" complexity="0" loc="28" ncloc="28" packages="1" files="3" classes="3"/>
+    <file name="CityInput.tsx" path="C:\Project\weather-analytics\frontend\src\components\CityInput.tsx">
+      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+      <line num="8" count="4" type="stmt"/>
+      <line num="10" count="4" type="stmt"/>
+      <line num="14" count="2" type="stmt"/>
+      <line num="18" count="1" type="stmt"/>
+    </file>
+    <file name="WeatherCard.tsx" path="C:\Project\weather-analytics\frontend\src\components\WeatherCard.tsx">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <line num="9" count="2" type="stmt"/>
+      <line num="25" count="1" type="stmt"/>
+    </file>
     <file name="WeatherGrid.tsx" path="C:\Project\weather-analytics\frontend\src\components\WeatherGrid.tsx">
       <metrics statements="22" coveredstatements="22" conditionals="14" coveredconditionals="12" methods="8" coveredmethods="8"/>
       <line num="12" count="15" type="stmt"/>
