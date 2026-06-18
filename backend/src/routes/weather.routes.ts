@@ -32,8 +32,15 @@ router.post("/save", async (req, res) => {
       message: "Weather saved successfully",
     });
   } catch (err: any) {
-    console.error("[ROUTE ERROR]:", err);
-    res.status(400).json({ error: err?.message || "unknown error" });
+    console.error("❌ FULL ERROR OBJECT:");
+    console.error(err);
+    console.error("❌ ERROR STACK:");
+    console.error(err?.stack);
+
+    res.status(400).json({
+      error: err?.message,
+      raw: err,
+    });
   }
 });
 
