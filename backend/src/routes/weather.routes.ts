@@ -47,6 +47,7 @@ router.post("/save", async (req, res) => {
 
 router.get("/saved", async (req, res) => {
   try {
+    console.log("[ROUTE] hit /weather/saved");
     const data = await getSavedWeather();
     res.json(data);
   } catch (err: any) {
