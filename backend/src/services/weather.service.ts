@@ -66,6 +66,7 @@ export async function getWeatherAnalytics() {
   console.log("RAW DATA:", data);
 
   if (!data || data.length === 0) {
+    console.log("RAW ROWS:", data);
     return {
       avgTemp: 0,
       avgWind: 0,
