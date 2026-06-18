@@ -17,15 +17,23 @@ router.get("/", async (req, res) => {
 
 router.post("/save", async (req, res) => {
   try {
+    console.log("[ROUTE] hit /weather/save");
+    console.log("[ROUTE] raw body:", req.body);
+
     const reading: WeatherReading = req.body;
 
+    console.log("[ROUTE] parsed reading:", reading);
+
     await saveWeather(reading);
+
+    console.log("[ROUTE] saveWeather completed");
 
     res.status(201).json({
       message: "Weather saved successfully",
     });
   } catch (err: any) {
-    res.status(400).json({ error: err.message });
+    console.error("[ROUTE ERROR]:", err);
+    res.status(400).json({ error: err?.message || "unknown error" });
   }
 });
 

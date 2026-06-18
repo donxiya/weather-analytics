@@ -23,20 +23,35 @@ export async function getWeatherByCity(city: string) {
 }
 
 export async function saveWeather(reading: WeatherReading): Promise<void> {
+  console.log("🔥 [SERVICE] saveWeather called with:", reading);
+
+  if (!reading) {
+    console.log(" [SERVICE] reading is undefined");
+    throw new Error("reading is undefined");
+  }
+
+  console.log("[SERVICE] city:", reading.city);
+
   const city = reading?.city;
 
   if (typeof city !== "string") {
+    console.log("[SERVICE] invalid city type:", typeof city);
     throw new Error("City must be a string");
   }
 
   const trimmed = city.trim();
 
   if (!trimmed) {
+    console.log("[SERVICE] empty city after trim");
     throw new Error("City is required");
   }
+
+  console.log("[SERVICE] inserting into DB...");
 
   await insertWeather({
     ...reading,
     city: trimmed,
   });
+
+  console.log("[SERVICE] DB insert complete");
 }
