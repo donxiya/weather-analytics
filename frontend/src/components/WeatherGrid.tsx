@@ -5,7 +5,7 @@ type Props = {
   data: WeatherResponse[];
 };
 
-type SortKey = "city" | "temperature" | "humidity" | "recordedAt";
+type SortKey = "city" | "temperature" | "windSpeed" | "recordedAt";
 type SortOrder = "asc" | "desc";
 
 export default function WeatherTable({ data }: Props) {
@@ -43,7 +43,7 @@ export default function WeatherTable({ data }: Props) {
           <tr>
             <th onClick={() => toggleSort("city")}>City</th>
             <th onClick={() => toggleSort("temperature")}>Temperature</th>
-            <th onClick={() => toggleSort("humidity")}>Humidity</th>
+            <th onClick={() => toggleSort("windSpeed")}>Wind Speed</th>
             <th onClick={() => toggleSort("recordedAt")}>Time</th>
           </tr>
         </thead>
@@ -53,7 +53,7 @@ export default function WeatherTable({ data }: Props) {
             <tr key={item.city}>
               <td>{item.city}</td>
               <td>{item.temperature}°C</td>
-              <td>{item.humidity} %</td>
+              <td>{item.windSpeed} km/h</td>
               <td>{item.recordedAt}</td>
             </tr>
           ))}

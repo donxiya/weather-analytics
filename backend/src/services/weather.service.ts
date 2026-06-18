@@ -28,9 +28,5 @@ export async function saveWeather(reading: WeatherReading): Promise<void> {
     throw new Error("City is required");
   }
 
-  if (reading.humidity < 0 || reading.humidity > 100) {
-    throw new Error("Humidity must be between 0 and 100");
-  }
-
   await insertWeather(reading);
 }

@@ -1,6 +1,6 @@
 export type WeatherReading = {
   city: string;
   temperature: number;
-  humidity: number;
+  windSpeed: number;
   recordedAt: Date;
 };

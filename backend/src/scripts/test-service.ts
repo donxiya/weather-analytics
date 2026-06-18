@@ -5,7 +5,7 @@ async function main() {
   await saveWeather({
     city: "Boulder",
     temperature: 27.4,
-    humidity: 42,
+    windSpeed: 42,
     recordedAt: new Date(),
   });
 

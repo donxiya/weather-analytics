@@ -1,6 +1,6 @@
 export type WeatherResponse = {
   city: string;
   temperature: number;
-  humidity: number;
+  windSpeed: number;
   recordedAt: string;
 };
