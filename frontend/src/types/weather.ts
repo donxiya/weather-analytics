@@ -4,3 +4,10 @@ export type WeatherResponse = {
   windSpeed: number;
   time: string;
 };
+
+
+export type WeatherAnalytics = {
+  avgTemp: number;
+  avgWind: number;
+  count: number;
+};

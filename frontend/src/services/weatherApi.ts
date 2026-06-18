@@ -1,4 +1,5 @@
 import type { WeatherResponse } from "../types/weather";
+import type { WeatherAnalytics } from "../types/weather";
 
 const API_URL = "https://weather-analytics-tls1.onrender.com";
 
@@ -33,6 +34,18 @@ export async function getSavedWeather(): Promise<WeatherResponse[]> {
   if (!res.ok) {
     const err = await res.json();
     throw new Error(err.error || "Failed to fetch weather");
+  }
+
+  return res.json();
+}
+
+
+export async function getWeatherAnalytics(): Promise<WeatherAnalytics> {
+  const res = await fetch(`${API_URL}/weather/analytics`);
+
+  if (!res.ok) {
+    const err = await res.json();
+    throw new Error(err.error || "Failed to fetch analytics");
   }
 
   return res.json();
