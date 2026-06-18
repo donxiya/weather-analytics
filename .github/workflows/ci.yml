@@ -20,4 +20,4 @@ jobs:
         run: cd backend && npm ci
 
       - name: Run tests
-        run: cd backend && npm test
+        run: cd backend && test:unit
