@@ -32,9 +32,9 @@ router.post("/save", async (req, res) => {
       message: "Weather saved successfully",
     });
   } catch (err: any) {
-    console.error("❌ FULL ERROR OBJECT:");
+    console.error("FULL ERROR OBJECT:");
     console.error(err);
-    console.error("❌ ERROR STACK:");
+    console.error("ERROR STACK:");
     console.error(err?.stack);
 
     res.status(400).json({

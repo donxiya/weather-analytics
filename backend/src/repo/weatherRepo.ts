@@ -2,7 +2,7 @@ import { pool } from "../db/pool";
 import { WeatherReading } from "../types/weather";
 
 export async function insertWeather(reading: WeatherReading) {
-  console.log("🔥 DB INSERT INPUT:", reading);
+  console.log("DB INSERT INPUT:", reading);
 
   const query = `
     INSERT INTO weather_readings (city, temperature, wind_speed, recorded_at)
@@ -17,9 +17,9 @@ export async function insertWeather(reading: WeatherReading) {
 
   try {
     const result = await pool.query(query, values);
-    console.log("✅ INSERT SUCCESS:", result.rowCount);
+    console.log("INSERT SUCCESS:", result.rowCount);
   } catch (err) {
-    console.error("❌ DB INSERT ERROR:", err);
+    console.error("DB INSERT ERROR:", err);
     throw err;
   }
-}
+}   
