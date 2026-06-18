@@ -57,8 +57,14 @@ router.get("/saved", async (req, res) => {
 });
 
 router.get("/analytics", async (req, res) => {
-  const result = await getWeatherAnalytics();
-  res.json(result);
+  try {
+    console.log("[ROUTE] hit /weather/analytics");
+    const result = await getWeatherAnalytics();
+    res.json(result);
+  } catch (err: any) {
+    res.status(500).json({ error: err.message });
+  }  
+
 });
 
 export default router;
