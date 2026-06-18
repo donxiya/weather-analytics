@@ -23,10 +23,20 @@ export async function getWeatherByCity(city: string) {
 }
 
 export async function saveWeather(reading: WeatherReading): Promise<void> {
+  const city = reading?.city;
 
-  if (!reading.city.trim()) {
+  if (typeof city !== "string") {
+    throw new Error("City must be a string");
+  }
+
+  const trimmed = city.trim();
+
+  if (!trimmed) {
     throw new Error("City is required");
   }
 
-  await insertWeather(reading);
+  await insertWeather({
+    ...reading,
+    city: trimmed,
+  });
 }
