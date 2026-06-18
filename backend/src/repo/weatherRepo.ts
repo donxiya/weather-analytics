@@ -23,3 +23,20 @@ export async function insertWeather(reading: WeatherReading) {
     throw err;
   }
 }   
+
+export async function getAllWeather() {
+  const query = `
+    SELECT city, temperature, wind_speed, recorded_at
+    FROM weather_readings
+    ORDER BY recorded_at DESC
+  `;
+
+  const result = await pool.query(query);
+
+  return result.rows.map((row) => ({
+    city: row.city,
+    temperature: row.temperature,
+    windSpeed: row.wind_speed,
+    time: row.recorded_at,
+  }));
+}

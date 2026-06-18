@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { getWeatherByCity, saveWeather } from "../services/weather.service";
 import type { WeatherReading } from "../types/weather";
+import { getSavedWeather } from "../services/weather.service";
 
 const router = Router();
 
@@ -41,6 +42,15 @@ router.post("/save", async (req, res) => {
       error: err?.message,
       raw: err,
     });
+  }
+});
+
+router.get("/saved", async (req, res) => {
+  try {
+    const data = await getSavedWeather();
+    res.json(data);
+  } catch (err: any) {
+    res.status(500).json({ error: err.message });
   }
 });
 

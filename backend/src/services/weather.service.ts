@@ -2,7 +2,7 @@ import { CITY_COORDS } from "../utils/cityMap";
 import { fetchWeather } from "../clients/openmeteo.client";
 import type { WeatherReading } from "../types/weather";
 import { insertWeather } from "../repo/weatherRepo";
-
+import { getAllWeather } from "../repo/weatherRepo";
 
 export async function getWeatherByCity(city: string) {
   if (typeof city !== "string") {
@@ -26,7 +26,7 @@ export async function getWeatherByCity(city: string) {
 }
 
 export async function saveWeather(reading: WeatherReading): Promise<void> {
-  console.log("🔥 [SERVICE] saveWeather called with:", reading);
+  console.log("[SERVICE] saveWeather called with:", reading);
 
   if (!reading) {
     console.log(" [SERVICE] reading is undefined");
@@ -48,4 +48,14 @@ export async function saveWeather(reading: WeatherReading): Promise<void> {
   });
 
   console.log("[SERVICE] DB insert complete");
+}
+
+export async function getSavedWeather(): Promise<any[]> {
+  console.log("[SERVICE] getSavedWeather called");
+
+  const data = await getAllWeather();
+
+  console.log("[SERVICE] returning:", data.length, "records");
+
+  return data;
 }

@@ -26,3 +26,14 @@ export async function saveWeather(data: WeatherResponse): Promise<void> {
     throw new Error(err.error || "Failed to save weather");
   }
 }
+
+export async function getSavedWeather(): Promise<WeatherResponse[]> {
+  const res = await fetch(`${API_URL}/weather/saved`);
+
+  if (!res.ok) {
+    const err = await res.json();
+    throw new Error(err.error || "Failed to fetch weather");
+  }
+
+  return res.json();
+}
