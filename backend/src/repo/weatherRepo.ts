@@ -1,8 +1,9 @@
 import { pool } from "../db/pool";
 import { WeatherReading } from "../types/weather";
+import { log } from "../utils/logger";
 
 export async function insertWeather(reading: WeatherReading) {
-  console.log("DB INSERT INPUT:", reading);
+  log("DB INSERT INPUT:", reading);
 
   const query = `
     INSERT INTO weather_readings (city, temperature, wind_speed, recorded_at)
