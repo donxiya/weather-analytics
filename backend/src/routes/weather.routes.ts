@@ -3,6 +3,8 @@ import { getWeatherByCity, saveWeather } from "../services/weather.service";
 import type { WeatherReading } from "../types/weather";
 import { getSavedWeather } from "../services/weather.service";
 import { getWeatherAnalytics } from "../services/weather.service";
+import { weatherQueue } from "../queue/weatherQueue";
+
 
 const router = Router();
 
@@ -46,13 +48,28 @@ router.post("/save", async (req, res) => {
   }
 });
 
-router.get("/saved", async (req, res) => {
+router.post("/save", async (req, res) => {
   try {
-    console.log("[ROUTE] hit /weather/saved");
-    const data = await getSavedWeather();
-    res.json(data);
+    const reading: WeatherReading = req.body;
+
+    console.log("[ROUTE] adding job to queue:", reading);
+
+    await weatherQueue.add("save-weather", {
+      city: reading.city,
+      temperature: reading.temperature,
+      windSpeed: reading.windSpeed,
+      time: reading.time,
+    });
+
+    res.status(202).json({
+      message: "Weather save queued",
+    });
   } catch (err: any) {
-    res.status(500).json({ error: err.message });
+    console.error(err);
+
+    res.status(500).json({
+      error: err.message,
+    });
   }
 });
 
