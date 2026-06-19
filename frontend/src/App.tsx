@@ -3,6 +3,7 @@ import CityInput from "./components/CityInput";
 import WeatherCard from "./components/WeatherCard";
 import WeatherSavedTable from "./components/WeatherSavedTable";
 import { getWeather, saveWeather } from "./services/weatherApi";
+import HealthCheck from "./components/HealthCheck";
 import type { WeatherResponse } from "./types/weather";
 
 export default function App() {
@@ -40,6 +41,7 @@ export default function App() {
   return (
     <div style={{ padding: 20, fontFamily: "Arial" }}>
       <h1>Weather Analytics</h1>
+      <HealthCheck />
       <CityInput onSearch={handleSearch} />
 
       {loading && <p>Loading...</p>}
