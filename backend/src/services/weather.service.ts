@@ -3,6 +3,7 @@ import { fetchWeather } from "../clients/openmeteo.client";
 import type { WeatherReading } from "../types/weather";
 import { insertWeather } from "../repo/weatherRepo";
 import { getAllWeather } from "../repo/weatherRepo";
+import { log } from "../utils/logger";
 
 export async function getWeatherByCity(city: string) {
   if (typeof city !== "string") {
@@ -55,7 +56,9 @@ export async function getSavedWeather(): Promise<any[]> {
 
   const data = await getAllWeather();
 
-  log("[SERVICE] returning:", data.length, "records");
+  log("SERVICE_RETURNING", {
+  count: data.length,
+  });
 
   return data;
 }
