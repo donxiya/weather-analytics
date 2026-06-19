@@ -10,7 +10,8 @@ type HealthResponse = {
   error?: string;
 };
 
-const API_URL = import.meta.env.VITE_API_URL;
+const API_URL = "https://weather-analytics-tls1.onrender.com";
+
 
 export default function HealthCheck() {
   const [data, setData] = useState<HealthResponse | null>(null);

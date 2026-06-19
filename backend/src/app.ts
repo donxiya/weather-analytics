@@ -9,5 +9,5 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/weather", weatherRoutes);
-app.use("/weather/health", healthRoutes);
+app.use("/health", healthRoutes);
 export default app;
