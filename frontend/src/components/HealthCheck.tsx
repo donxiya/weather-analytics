@@ -22,7 +22,7 @@ export default function HealthCheck() {
     setData(null);
 
     try {
-      const res = await fetch(`${API_URL}/health`);
+      const res = await fetch(`${API_URL}/system-health`);
       const json = await res.json();
       setData(json);
     } catch (err) {
