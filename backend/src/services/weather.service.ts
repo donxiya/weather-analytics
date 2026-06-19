@@ -3,6 +3,7 @@ import { fetchWeather } from "../clients/openmeteo.client";
 import type { WeatherReading } from "../types/weather";
 import { insertWeather } from "../repo/weatherRepo";
 import { getAllWeather } from "../repo/weatherRepo";
+import { log } from "../utils/logger";
 
 export async function getWeatherByCity(city: string) {
   if (typeof city !== "string") {
@@ -26,36 +27,32 @@ export async function getWeatherByCity(city: string) {
 }
 
 export async function saveWeather(reading: WeatherReading): Promise<void> {
-  console.log("[SERVICE] saveWeather called with:", reading);
+  log("[SERVICE] saveWeather called");
 
   if (!reading) {
-    console.log(" [SERVICE] reading is undefined");
+    log(" [SERVICE] reading is undefined");
     throw new Error("reading is undefined");
   }
-
-  console.log("[SERVICE] city:", reading.city);
 
   const city = reading?.city;
 
 
   const trimmed = city.trim();
 
-  console.log("[SERVICE] inserting into DB...");
+  log("[SERVICE] inserting into DB...");
 
   await insertWeather({
     ...reading,
     city: trimmed,
   });
 
-  console.log("[SERVICE] DB insert complete");
+  log("[SERVICE] DB insert complete");
 }
 
 export async function getSavedWeather(): Promise<any[]> {
-  console.log("[SERVICE] getSavedWeather called");
+  log("[SERVICE] getSavedWeather called");
 
   const data = await getAllWeather();
-
-  console.log("[SERVICE] returning:", data.length, "records");
 
   return data;
 }
@@ -63,7 +60,6 @@ export async function getSavedWeather(): Promise<any[]> {
 export async function getWeatherAnalytics() {
   const data = await getAllWeather();
 
-  console.log("RAW DATA:", data);
 
   if (!data || data.length === 0) {
     console.log("RAW ROWS:", data);
