@@ -4,7 +4,6 @@ import WeatherCard from "./components/WeatherCard";
 import WeatherSavedTable from "./components/WeatherSavedTable";
 import { getWeather, saveWeather } from "./services/weatherApi";
 import type { WeatherResponse } from "./types/weather";
-//import HealthCheck from "./components/HealthCheck";
 
 export default function App() {
   const [weatherList, setWeatherList] = useState<WeatherResponse[]>([]);

@@ -283,36 +283,36 @@ export async function getWeatherByCity(city: string) {
 }
 &nbsp;
 export async function saveWeather(reading: WeatherReading): Promise&lt;void&gt; {
-  log("[SERVICE] saveWeather called with:", reading);
+  console.log("[SERVICE] saveWeather called with:", reading);
 &nbsp;
   if (!reading) {
-    log(" [SERVICE] reading is undefined");
+    console.log(" [SERVICE] reading is undefined");
     throw new Error("reading is undefined");
   }
 &nbsp;
-  log("[SERVICE] city:", reading.city);
+  console.log("[SERVICE] city:", reading.city);
 &nbsp;
   const city = reading?.city;
 &nbsp;
 &nbsp;
   const trimmed = city.trim();
 &nbsp;
-  log("[SERVICE] inserting into DB...");
+  console.log("[SERVICE] inserting into DB...");
 &nbsp;
   await insertWeather({
     ...reading,
     city: trimmed,
   });
 &nbsp;
-  log("[SERVICE] DB insert complete");
+  console.log("[SERVICE] DB insert complete");
 }
 &nbsp;
 export async function <span class="fstat-no" title="function not covered" >getSavedWeather(): Promise&lt;any[]&gt; {</span>
-<span class="cstat-no" title="statement not covered" >  log("[SERVICE] getSavedWeather called");</span>
+<span class="cstat-no" title="statement not covered" >  console.log("[SERVICE] getSavedWeather called");</span>
 &nbsp;
   const data = <span class="cstat-no" title="statement not covered" >await getAllWeather();</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  log("[SERVICE] returning:", data.length, "records");</span>
+<span class="cstat-no" title="statement not covered" >  console.log("[SERVICE] returning:", data.length, "records");</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >  return data;</span>
 }
@@ -320,10 +320,10 @@ export async function <span class="fstat-no" title="function not covered" >getSa
 export async function <span class="fstat-no" title="function not covered" >getWeatherAnalytics() {</span>
   const data = <span class="cstat-no" title="statement not covered" >await getAllWeather();</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  log("RAW DATA:", data);</span>
+<span class="cstat-no" title="statement not covered" >  console.log("RAW DATA:", data);</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >  if (!data || data.length === 0) {</span>
-<span class="cstat-no" title="statement not covered" >    log("RAW ROWS:", data);</span>
+<span class="cstat-no" title="statement not covered" >    console.log("RAW ROWS:", data);</span>
 <span class="cstat-no" title="statement not covered" >    return {</span>
       avgTemp: 0,
       avgWind: 0,
@@ -344,7 +344,7 @@ export async function <span class="fstat-no" title="function not covered" >getWe
   const avgTemp = <span class="cstat-no" title="statement not covered" >tempSum / count;</span>
   const avgWind = <span class="cstat-no" title="statement not covered" >windSum / count;</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  log("CALCULATED:", { avgTemp, avgWind, count });</span>
+<span class="cstat-no" title="statement not covered" >  console.log("CALCULATED:", { avgTemp, avgWind, count });</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >  return {</span>
     avgTemp,

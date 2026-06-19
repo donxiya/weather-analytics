@@ -222,16 +222,16 @@ router.get("/", async (req, res) =&gt; {
 &nbsp;
 router.post("/save", async (req, res) =&gt; {
   try {
-    log("[ROUTE] hit /weather/save");
-    log("[ROUTE] raw body:", req.body);
+    console.log("[ROUTE] hit /weather/save");
+    console.log("[ROUTE] raw body:", req.body);
 &nbsp;
     const reading: WeatherReading = req.body;
 &nbsp;
-    log("[ROUTE] parsed reading:", reading);
+    console.log("[ROUTE] parsed reading:", reading);
 &nbsp;
     await saveWeather(reading);
 &nbsp;
-    log("[ROUTE] saveWeather completed");
+    console.log("[ROUTE] saveWeather completed");
 &nbsp;
     res.status(201).json({
       message: "Weather saved successfully",
@@ -251,7 +251,7 @@ router.post("/save", async (req, res) =&gt; {
 &nbsp;
 router.get("/saved", <span class="fstat-no" title="function not covered" >async (r</span>eq, res) =&gt; {
 <span class="cstat-no" title="statement not covered" >  try {</span>
-<span class="cstat-no" title="statement not covered" >    log("[ROUTE] hit /weather/saved");</span>
+<span class="cstat-no" title="statement not covered" >    console.log("[ROUTE] hit /weather/saved");</span>
     const data = <span class="cstat-no" title="statement not covered" >await getSavedWeather();</span>
 <span class="cstat-no" title="statement not covered" >    res.json(data);</span>
   } catch (err: any) {
@@ -261,7 +261,7 @@ router.get("/saved", <span class="fstat-no" title="function not covered" >async 
 &nbsp;
 router.get("/analytics", <span class="fstat-no" title="function not covered" >async (r</span>eq, res) =&gt; {
 <span class="cstat-no" title="statement not covered" >  try {</span>
-<span class="cstat-no" title="statement not covered" >    log("[ROUTE] hit /weather/analytics");</span>
+<span class="cstat-no" title="statement not covered" >    console.log("[ROUTE] hit /weather/analytics");</span>
     const result = <span class="cstat-no" title="statement not covered" >await getWeatherAnalytics();</span>
 <span class="cstat-no" title="statement not covered" >    res.json(result);</span>
   } catch (err: any) {
