@@ -27,14 +27,12 @@ export async function getWeatherByCity(city: string) {
 }
 
 export async function saveWeather(reading: WeatherReading): Promise<void> {
-  log("[SERVICE] saveWeather called with:", reading);
+  log("[SERVICE] saveWeather called");
 
   if (!reading) {
     log(" [SERVICE] reading is undefined");
     throw new Error("reading is undefined");
   }
-
-  log("[SERVICE] city:", reading.city);
 
   const city = reading?.city;
 
@@ -52,13 +50,7 @@ export async function saveWeather(reading: WeatherReading): Promise<void> {
 }
 
 export async function getSavedWeather(): Promise<any[]> {
-  log("[SERVICE] getSavedWeather called");
-
   const data = await getAllWeather();
-
-  log("SERVICE_RETURNING", {
-  count: data.length,
-  });
 
   return data;
 }
@@ -66,10 +58,8 @@ export async function getSavedWeather(): Promise<any[]> {
 export async function getWeatherAnalytics() {
   const data = await getAllWeather();
 
-  log("RAW DATA:", data);
 
   if (!data || data.length === 0) {
-    log("RAW ROWS:", data);
     return {
       avgTemp: 0,
       avgWind: 0,
@@ -90,7 +80,6 @@ export async function getWeatherAnalytics() {
   const avgTemp = tempSum / count;
   const avgWind = windSum / count;
 
-  log("CALCULATED:", { avgTemp, avgWind, count });
 
   return {
     avgTemp,
