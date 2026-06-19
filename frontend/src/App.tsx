@@ -56,7 +56,6 @@ export default function App() {
         ))}
       </div>
 
-      {/* ✅ NEW: DB-backed saved data table */}
       <hr style={{ margin: "30px 0" }} />
 
       <h2>Saved Weather (Database)</h2>

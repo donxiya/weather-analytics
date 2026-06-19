@@ -35,7 +35,6 @@ export default function WeatherSavedTable() {
       <button onClick={load}>Refresh</button>
 
       <WeatherAnalytics />
-      <p>DEBUG: analytics should be above me</p>
       <WeatherTable data={data} />
     </div>
   );
