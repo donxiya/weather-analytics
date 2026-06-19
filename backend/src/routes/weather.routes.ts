@@ -4,6 +4,7 @@ import type { WeatherReading } from "../types/weather";
 import { getSavedWeather } from "../services/weather.service";
 import { getWeatherAnalytics } from "../services/weather.service";
 import { weatherQueue } from "../queue/weatherQueue";
+import { log } from "../utils/logger";
 
 const router = Router();
 
@@ -20,8 +21,7 @@ router.get("/", async (req, res) => {
 
 router.post("/save", async (req, res) => {
   try {
-    console.log("[ROUTE] queueing weather save job");
-    console.log("[ROUTE] body:", req.body);
+    log("[ROUTE] queueing weather save job");
 
     const reading: WeatherReading = req.body;
 
@@ -32,7 +32,7 @@ router.post("/save", async (req, res) => {
       time: reading.time,
     });
 
-    console.log("[ROUTE] job added to queue");
+    log("[ROUTE] job added to queue");
 
     res.status(202).json({
       message: "Weather save queued successfully",
@@ -48,7 +48,7 @@ router.post("/save", async (req, res) => {
 
 router.get("/saved", async (req, res) => {
   try {
-    console.log("[ROUTE] hit /weather/saved");
+    log("[ROUTE] hit /weather/saved");
     const data = await getSavedWeather();
     res.json(data);
   } catch (err: any) {
@@ -58,7 +58,7 @@ router.get("/saved", async (req, res) => {
 
 router.get("/analytics", async (req, res) => {
   try {
-    console.log("[ROUTE] hit /weather/analytics");
+    log("[ROUTE] hit /weather/analytics");
     const result = await getWeatherAnalytics();
     res.json(result);
   } catch (err: any) {

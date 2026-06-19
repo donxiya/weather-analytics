@@ -3,7 +3,7 @@ import { WeatherReading } from "../types/weather";
 import { log } from "../utils/logger";
 
 export async function insertWeather(reading: WeatherReading) {
-  log("DB INSERT INPUT:", reading);
+  log("[REPO] DB INSERT INPUT:", reading);
 
   const query = `
     INSERT INTO weather_readings (city, temperature, wind_speed, recorded_at)
@@ -26,7 +26,7 @@ export async function insertWeather(reading: WeatherReading) {
 }   
 
 export async function getAllWeather() {
-  log("DB READ SAVED DATA");
+  log("[REPO] DB READ SAVED DATA");
   const query = `
     SELECT city, temperature, wind_speed, recorded_at
     FROM weather_readings

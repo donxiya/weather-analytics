@@ -8,10 +8,8 @@ router.get("/", async (req, res) => {
   const start = Date.now();
 
   try {
-    // DB check
     await pool.query("SELECT 1");
 
-    // Redis check
     await redis.ping();
 
     res.json({
