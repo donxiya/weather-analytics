@@ -4,6 +4,7 @@ import WeatherCard from "./components/WeatherCard";
 import WeatherSavedTable from "./components/WeatherSavedTable";
 import { getWeather, saveWeather } from "./services/weatherApi";
 import type { WeatherResponse } from "./types/weather";
+import HealthCheck from "./components/HealthCheck";
 
 export default function App() {
   const [weatherList, setWeatherList] = useState<WeatherResponse[]>([]);
@@ -40,7 +41,7 @@ export default function App() {
   return (
     <div style={{ padding: 20, fontFamily: "Arial" }}>
       <h1>Weather Analytics</h1>
-
+      <HealthCheck />
       <CityInput onSearch={handleSearch} />
 
       {loading && <p>Loading...</p>}

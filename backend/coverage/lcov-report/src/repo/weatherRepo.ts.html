@@ -149,7 +149,7 @@
 import { WeatherReading } from "../types/weather";
 &nbsp;
 export async function <span class="fstat-no" title="function not covered" >insertWeather(r</span>eading: WeatherReading) {
-<span class="cstat-no" title="statement not covered" >  console.log("DB INSERT INPUT:", reading);</span>
+<span class="cstat-no" title="statement not covered" >  log("DB INSERT INPUT:", reading);</span>
 &nbsp;
   const query = <span class="cstat-no" title="statement not covered" >`</span>
     INSERT INTO weather_readings (city, temperature, wind_speed, recorded_at)
@@ -164,7 +164,7 @@ export async function <span class="fstat-no" title="function not covered" >inser
 &nbsp;
 <span class="cstat-no" title="statement not covered" >  try {</span>
     const result = <span class="cstat-no" title="statement not covered" >await pool.query(query, values);</span>
-<span class="cstat-no" title="statement not covered" >    console.log("INSERT SUCCESS:", result.rowCount);</span>
+<span class="cstat-no" title="statement not covered" >    log("INSERT SUCCESS:", result.rowCount);</span>
   } catch (err) {
 <span class="cstat-no" title="statement not covered" >    console.error("DB INSERT ERROR:", err);</span>
 <span class="cstat-no" title="statement not covered" >    throw err;</span>
