@@ -1,6 +1,5 @@
 import { pool } from "../db/pool";
 import { WeatherReading } from "../types/weather";
-import { log } from "../utils/logger";
 
 export async function insertWeather(reading: WeatherReading) {
   console.log("DB INSERT INPUT:", reading);
