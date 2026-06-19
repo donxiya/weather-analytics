@@ -26,6 +26,7 @@ export async function insertWeather(reading: WeatherReading) {
 }   
 
 export async function getAllWeather() {
+  log("DB READ SAVED DATA");
   const query = `
     SELECT city, temperature, wind_speed, recorded_at
     FROM weather_readings
